@@ -17,10 +17,10 @@ public class KafkaProducer {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 10000)
     public void saveOrder() {
         log.info("MESSAGE POST");
-        kafkaTemplate.send("order", "order");
+        kafkaTemplate.send("order", UUID.randomUUID().toString());
     }
 }
 
