@@ -20,7 +20,8 @@ public class KafkaProducer {
     @Scheduled(fixedDelay = 10000)
     public void saveOrder() {
         log.info("MESSAGE POST");
-        kafkaTemplate.send("order", UUID.randomUUID().toString());
+        kafkaTemplate.send("order", "first", UUID.randomUUID().toString());
+        kafkaTemplate.send("order", "second", UUID.randomUUID().toString());
     }
 }
 
